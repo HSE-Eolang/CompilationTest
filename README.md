@@ -19,14 +19,14 @@
 ### Код компилятора
 30th Fibonacci number is 832040
 
-real    1m8,963s
-user    1m9,882s
-sys     0m1,391s
+real    1m8,963s<br>
+user    1m9,882s<br>
+sys     0m1,391s<br>
 
 ### Предложенный код
 50th Fibonacci number is 12586269025
 
 
-real    0m0,109s
-user    0m0,115s
-sys     0m0,034s
+real    0m0,109s<br>
+user    0m0,115s<br>
+sys     0m0,034s<br>
