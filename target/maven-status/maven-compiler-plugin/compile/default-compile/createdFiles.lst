@@ -1,0 +1,15 @@
+eo/test/EOfibonacci.class
+eo/org/eolang/calc/EOequal.class
+eo/test/app.class
+eo/test/EOfibonacci$EOsmall.class
+eo/org/eolang/calc/EOsub.class
+eo/test/EOfibonacci$EOrec.class
+eo/org/eolang/core/EOObject.class
+eo/org/eolang/calc/EOless.class
+eo/org/eolang/core/EODataObject.class
+eo/org/eolang/core/EOData.class
+Main.class
+eo/org/eolang/txt/EOsprintf.class
+eo/org/eolang/calc/EOadd.class
+eo/org/eolang/calc/EOif.class
+eo/org/eolang/io/EOstdout.class
