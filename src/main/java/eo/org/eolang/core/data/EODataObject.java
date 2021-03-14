@@ -1,6 +1,9 @@
-package eo.org.eolang.core;
+package eo.org.eolang.core.data;
 
-public class EODataObject extends EOObject{
+import eo.org.eolang.core.EOObject;
+import eo.org.eolang.core.data.EOData;
+
+public class EODataObject extends EOObject {
 
     protected EOData _data;
 

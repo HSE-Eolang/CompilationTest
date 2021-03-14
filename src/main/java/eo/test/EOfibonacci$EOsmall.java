@@ -2,8 +2,8 @@ package eo.test;
 
 import eo.org.eolang.calc.EOequal;
 import eo.org.eolang.calc.EOif;
-import eo.org.eolang.core.EOData;
-import eo.org.eolang.core.EODataObject;
+import eo.org.eolang.core.data.EOData;
+import eo.org.eolang.core.data.EODataObject;
 import eo.org.eolang.core.EOObject;
 
 public class EOfibonacci$EOsmall extends EOObject {

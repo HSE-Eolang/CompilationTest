@@ -1,4 +1,4 @@
-package eo.org.eolang.core;
+package eo.org.eolang.core.data;
 
 public class EOData {
     private Object _data;

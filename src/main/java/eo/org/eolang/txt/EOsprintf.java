@@ -1,6 +1,6 @@
 package eo.org.eolang.txt;
 
-import eo.org.eolang.core.EOData;
+import eo.org.eolang.core.data.EOData;
 import eo.org.eolang.core.EOObject;
 
 import java.util.Arrays;

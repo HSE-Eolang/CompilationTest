@@ -1,5 +1,4 @@
-import eo.org.eolang.core.EOData;
-import eo.org.eolang.core.EODataObject;
+import eo.org.eolang.core.data.EODataObject;
 import eo.org.eolang.core.EOObject;
 import eo.org.eolang.io.EOstdout;
 import eo.org.eolang.txt.EOsprintf;

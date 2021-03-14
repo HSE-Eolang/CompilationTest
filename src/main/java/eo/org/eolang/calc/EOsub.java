@@ -1,7 +1,6 @@
 package eo.org.eolang.calc;
 
-import eo.org.eolang.core.EOData;
-import eo.org.eolang.core.EODataObject;
+import eo.org.eolang.core.data.EODataObject;
 import eo.org.eolang.core.EOObject;
 
 public class EOsub extends EODataObject {

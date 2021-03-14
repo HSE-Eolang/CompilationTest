@@ -1,6 +1,6 @@
 package eo.org.eolang.io;
 
-import eo.org.eolang.core.EOData;
+import eo.org.eolang.core.data.EOData;
 import eo.org.eolang.core.EOObject;
 
 public class EOstdout extends EOObject {
