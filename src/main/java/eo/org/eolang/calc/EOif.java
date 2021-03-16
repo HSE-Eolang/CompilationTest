@@ -17,10 +17,13 @@ public class EOif extends EOObject {
     @Override
     public EOData _getData() {
         Boolean boolCond = cond._getData().toBoolean();
+        EOData res;
         if(boolCond){
-            return obj1._getData();
+            res = obj1._getData();
         }else {
-            return obj2._getData();
+            res = obj2._getData();
         }
+        _freeAttributes();
+        return res;
     }
 }

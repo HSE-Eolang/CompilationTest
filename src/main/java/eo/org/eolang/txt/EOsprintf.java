@@ -22,11 +22,12 @@ public class EOsprintf extends EOObject {
     @Override
     public EOData _getData() {
         String sFormat = format._getData().toString();
-        final Collection<Object> items = new LinkedList<>();
+        Object[] objects = Arrays.stream(data).map(obj -> obj._getData().toObject()).toArray();
+        _freeAttributes();
         return  new EOData(
                 String.format(
                         sFormat,
-                        Arrays.stream(data).map(obj -> obj._getData().toObject()).toArray()
+                        objects
                 )
         );
     }

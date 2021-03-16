@@ -12,6 +12,12 @@ public class EOData {
         if(_data.getClass().equals(String.class) ){
             return (String)_data;
         }
+        if(_data.getClass().equals(Long.class) ){
+            return _data.toString();
+        }
+        if(_data.getClass().equals(Integer.class) ){
+            return _data.toString();
+        }
         return "";
     }
     public Object toObject() {

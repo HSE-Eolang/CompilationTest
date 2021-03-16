@@ -27,6 +27,7 @@ sys     0m1,391s<br>
 50th Fibonacci number is 12586269025
 
 
-real    0m0,109s<br>
-user    0m0,115s<br>
-sys     0m0,034s<br>
+real    0m0,274s<br>
+user    0m0,476s<br>
+sys     0m0,060s<br>
+

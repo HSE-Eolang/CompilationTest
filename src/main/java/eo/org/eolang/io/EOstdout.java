@@ -15,6 +15,7 @@ public class EOstdout extends EOObject {
     public EOData _getData() {
         EOData res = out._getData();
         System.out.println(res);
+        _freeAttributes();
         return res;
     }
 }
