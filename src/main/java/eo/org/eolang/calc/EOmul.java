@@ -5,7 +5,9 @@ import eo.org.eolang.core.data.EOData;
 import eo.org.eolang.core.data.EODataObject;
 import eo.org.eolang.core.data.EOExpressionObject;
 import eo.test.EOFactorial;
-
+/**
+ * Объект, при датаризации которого выполняется арифметическое умножение результатов датаризации свободных атрибутов.
+ */
 public class EOmul extends EOExpressionObject {
     private EOObject val1;
     private EOObject val2;

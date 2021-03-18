@@ -5,6 +5,9 @@ import eo.org.eolang.core.data.EODataObject;
 import eo.org.eolang.core.EOObject;
 import eo.org.eolang.core.data.EOExpressionObject;
 
+/**
+ * Объект, при датаризации которого проверяется равенство результатов датаризации свободных атрибутов.
+ */
 public class EOequal extends EOExpressionObject {
     private EOObject val1;
     private EOObject val2;

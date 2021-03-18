@@ -5,8 +5,14 @@ import eo.org.eolang.core.data.EOData;
 
 import java.lang.reflect.Field;
 
+/**
+ * Объект хранящий данные, используется для работы с Data Objects из EO.
+ */
 public class EODataObject extends EOObject {
 
+    /**
+     * Хранимые данные.
+     */
     protected EOData _data;
 
     public boolean _isCalculable(){return true;}
@@ -23,6 +29,9 @@ public class EODataObject extends EOObject {
         this._data = _data;
     }
 
+    /**
+     * Датаризация объекта.
+     */
     public EOData _getData() {
         return _data;
     }

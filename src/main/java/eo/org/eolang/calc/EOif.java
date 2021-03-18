@@ -3,6 +3,11 @@ package eo.org.eolang.calc;
 import eo.org.eolang.core.data.EOData;
 import eo.org.eolang.core.EOObject;
 
+/**
+ * Объект представляющий собой аналог управляющей конструкции if в других языках.
+ * Свободный атрибут cond(условие) определяет какой из объектов будет датаризован obj1 или obj2 для
+ * вычисления результата датаризации этого объекта.
+ */
 public class EOif extends EOObject {
     private EOObject cond;
     private EOObject obj1;

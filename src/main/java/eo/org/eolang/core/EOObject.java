@@ -7,21 +7,50 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.Arrays;
 
+
+/**
+ * Базовый EO объект. На основе этого класса создаются классы для создания объектов пользователяю
+ */
 public abstract class EOObject implements Cloneable{
+    /**
+     * Ссылка на родетеля объекта
+     */
     protected EOObject _parent;
 
+    /**
+     * Проверка может ли быть датаризован объект при создании для кеширования объекта датаризации.
+     * Вариант решения проблемы экспоненциального роста времени датаризации при рекурсии.
+     * @return the boolean
+     */
     public boolean _isCalculable(){return false;}
 
+    /**
+     * Установка родителя объект.
+     *
+     * @param _parent Объект родитель
+     * @return this
+     */
     public EOObject _setParent(EOObject _parent){
         if(this._parent == null)
             this._parent = _parent;
         return this;
     }
+
+    /**
+     * Функция выполняющая датаризацию объекта
+     *
+     * @return Данные
+     */
     public EOData _getData(){
         _freeAttributes();
         return new EOData("");
     }
 
+    /**
+     * Создание копии объекта.
+     *
+     * @return копия объекта
+     */
     public EOObject _clone() {
         try{
             EOObject res  = (EOObject)this.clone();
@@ -41,6 +70,9 @@ public abstract class EOObject implements Cloneable{
 
     }
 
+    /**
+     * Присвоение атрибутам объекта значения null для последующего удаления атрибутов сборщиком мусора.
+     */
     public void _freeAttributes(){
         for (Field field : this.getClass().getDeclaredFields()) {
             field.setAccessible(true);
@@ -53,6 +85,12 @@ public abstract class EOObject implements Cloneable{
         }
     }
 
+    /**
+     * Копирование атрибута объекта по имени.
+     *
+     * @param name Имя объекта
+     * @return Атрибута объекта
+     */
     public EOObject _getAttribute(String name) {
         EOObject res = new EODataObject();
         try{
@@ -84,6 +122,13 @@ public abstract class EOObject implements Cloneable{
         return res;
     }
 
+    /**
+     * Копирование атрибута объекта по имени с установкойй свободных аттрибутов
+     *
+     * @param name    Имя объекта
+     * @param freeAtt Свободные аттрибуты
+     * @return Атрибута объекта
+     */
     public EOObject _getAttribute(String name, EOObject... freeAtt) {
         EOObject res = new EODataObject();
         try {

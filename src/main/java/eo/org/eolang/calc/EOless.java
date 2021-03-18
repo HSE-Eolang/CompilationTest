@@ -4,7 +4,10 @@ import eo.org.eolang.core.data.EOData;
 import eo.org.eolang.core.data.EODataObject;
 import eo.org.eolang.core.EOObject;
 import eo.org.eolang.core.data.EOExpressionObject;
-
+/**
+ * Объект, при датаризации которого выполняется сравнение результатов датаризации свободных атрибутов.
+ * val1 < val2
+ */
 public class EOless  extends EOExpressionObject {
     private EOObject val1;
     private EOObject val2;

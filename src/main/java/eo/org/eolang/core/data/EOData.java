@@ -1,12 +1,21 @@
 package eo.org.eolang.core.data;
 
+/**
+ * Объект представляющий данные - результат датаризации в EO.
+ */
 public class EOData {
+    /**
+     * Данные
+     */
     private Object _data;
 
     public EOData(Object _data){
         this._data = _data;
     }
 
+    /**
+     * Приведение типа данных к строке
+     */
     @Override
     public String toString() {
         if(_data.getClass().equals(String.class) ){
@@ -20,10 +29,14 @@ public class EOData {
         }
         return "";
     }
+
     public Object toObject() {
         return _data;
     }
 
+    /**
+     * Приведение типа данных к целому числу
+     */
     public Long toInt() {
         if(_data.getClass().equals(Long.class)){
             return (Long)_data;
@@ -34,6 +47,9 @@ public class EOData {
         return 0L;
     }
 
+    /**
+     * Приведение типа данных к логическому значению
+     */
     public Boolean toBoolean(){
         if(_data.getClass().equals(Boolean.class) ){
             return (Boolean)_data;

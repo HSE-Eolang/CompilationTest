@@ -7,6 +7,9 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 
+/**
+ * Объект осуществляющий создание форматированых строк.
+ */
 public class EOsprintf extends EOObject {
     private EOObject format;
     private EOObject[] data;
