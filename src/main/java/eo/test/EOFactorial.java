@@ -19,7 +19,7 @@ public class EOFactorial extends EOObject {
                 new EODataObject(1),
                 new EOmul( _getAttribute("n"), new EOFactorial( new EOsub(_getAttribute("n"), new EODataObject(1))))
         )._setParent(this)._getData();
-        _freeAttributes();
+        //_freeAttributes();
         return res;
     }
 }

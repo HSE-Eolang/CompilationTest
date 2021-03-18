@@ -25,7 +25,7 @@ public class EOfibonacci$EOsmall extends EOObject {
                 new EODataObject(1L),
                 _getAttribute("n")
         )._setParent(this)._getData();
-        _freeAttributes();
+        //_freeAttributes();
         return res;
     }
 }

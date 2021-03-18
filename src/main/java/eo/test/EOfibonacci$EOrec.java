@@ -31,7 +31,7 @@ public class EOfibonacci$EOrec extends EOObject {
                         _getAttribute("minus1")
                 )
         )._setParent(this)._getData();
-        _freeAttributes();
+        //_freeAttributes();
         return res;
     }
 }

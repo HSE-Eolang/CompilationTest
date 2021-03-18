@@ -26,7 +26,7 @@ public class EOsprintf extends EOObject {
     public EOData _getData() {
         String sFormat = format._getData().toString();
         Object[] objects = Arrays.stream(data).map(obj -> obj._getData().toObject()).toArray();
-        _freeAttributes();
+        //_freeAttributes();
         return  new EOData(
                 String.format(
                         sFormat,

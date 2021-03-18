@@ -28,7 +28,7 @@ public class EOif extends EOObject {
         }else {
             res = obj2._getData();
         }
-        _freeAttributes();
+        //_freeAttributes();
         return res;
     }
 }

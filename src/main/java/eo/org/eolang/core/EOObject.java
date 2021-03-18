@@ -42,7 +42,7 @@ public abstract class EOObject implements Cloneable{
      * @return Данные
      */
     public EOData _getData(){
-        _freeAttributes();
+        //_freeAttributes();
         return new EOData("");
     }
 
@@ -73,7 +73,7 @@ public abstract class EOObject implements Cloneable{
     /**
      * Присвоение атрибутам объекта значения null для последующего удаления атрибутов сборщиком мусора.
      */
-    public void _freeAttributes(){
+    /*public void _freeAttributes(){
         for (Field field : this.getClass().getDeclaredFields()) {
             field.setAccessible(true);
             try {
@@ -83,7 +83,7 @@ public abstract class EOObject implements Cloneable{
             }
 
         }
-    }
+    }*/
 
     /**
      * Копирование атрибута объекта по имени.
