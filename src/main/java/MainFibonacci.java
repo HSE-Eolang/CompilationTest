@@ -7,9 +7,6 @@ import eo.test.EOfibonacci;
 public class MainFibonacci {
     public static void main(String[] args) {
         int arg = Integer.parseInt(args[0]);
-        Integer a = 1;
-        Integer b = 1;
-        Integer c = a + b;
         EOObject stdout = new EOstdout(
                 new EOsprintf(
                         new EODataObject("%dth Fibonacci number is %d\n"),
