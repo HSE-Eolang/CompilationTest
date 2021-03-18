@@ -25,6 +25,10 @@ public class EODataObject extends EOObject {
         return _data;
     }
 
+    public boolean isNoData(){
+        return _data.getClass().equals(EONoData.class);
+    }
+
     public EOObject _clone() {
         try{
             EOObject res  = (EOObject)this.clone();

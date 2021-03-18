@@ -13,7 +13,8 @@ import java.util.Arrays;
 public abstract class EOObject implements Cloneable{
     protected EOObject _parent;
     public EOObject _setParent(EOObject _parent){
-        this._parent = _parent;
+        if(this._parent == null)
+            this._parent = _parent;
         return this;
     }
     public EOData _getData(){
@@ -52,6 +53,7 @@ public abstract class EOObject implements Cloneable{
     }
 
     public EOObject _getAttribute(String name) {
+        EOObject res = new EODataObject();
         try{
             for (Field field : this.getClass().getDeclaredFields()) {
                 if (field.getName().equals(name)) {
@@ -61,44 +63,49 @@ public abstract class EOObject implements Cloneable{
                 }
 
             }
-        }catch (IllegalAccessException iaException){
-            iaException.printStackTrace();
-        }
+        }catch (IllegalAccessException iaException){}
         try{
             Class<?> attClasss = Class.forName(this.getClass().getName()+"$EO"+name);
             Constructor<?> attConstructor = attClasss.getConstructor();
             return (EOObject)attConstructor.newInstance();
         } catch (Exception e) {}
+        if(_parent != null){
+            res = _parent._getAttribute(name);
+        }
         try{
-            Class<?> attClasss = Class.forName("EO"+name);
-            Constructor<?> attConstructor = attClasss.getConstructor();
-            return (EOObject)attConstructor.newInstance();
+            if(((EODataObject) res).isNoData()){
+                Class<?> attClasss = Class.forName("EO"+name);
+                Constructor<?> attConstructor = attClasss.getConstructor();
+                return (EOObject)attConstructor.newInstance();
+            }
+
         } catch (Exception e) {}
-        return new EODataObject();
+        return res;
     }
 
     public EOObject _getAttribute(String name, EOObject... freeAtt) {
+        EOObject res = new EODataObject();
         try {
-            Class<?> attClasss = _findAttClassByName(this, name);
+            String className = this.getClass().getName()+"$EO"+name;
+            Class<?> attClasss = Class.forName(className);;
             Constructor<?> attConstructor = Arrays.stream(attClasss.getConstructors())
                     .filter(constructor -> constructor.getParameterTypes().length == freeAtt.length)
                     .findFirst().get();
             return (EOObject)attConstructor.newInstance((Object[])freeAtt);
         } catch (Exception e) {}
-        return new EODataObject();
-    }
-
-    private Class<?> _findAttClassByName(EOObject obj, String name){
-        while(obj!=null){
-            String className = obj.getClass().getName()+"$EO"+name;
-            try {
-                return Class.forName(className);
-            } catch (ClassNotFoundException e) {}
-            obj = obj._parent;
+        if(_parent != null){
+            res = _parent._getAttribute(name, (EOObject[])freeAtt);
         }
-        try {
-            return Class.forName("EO"+name);
-        } catch (ClassNotFoundException e) {}
-        return null;
+        try{
+            if(((EODataObject) res).isNoData()){
+                Class<?> attClasss = Class.forName("EO"+name);
+                Constructor<?> attConstructor = Arrays.stream(attClasss.getConstructors())
+                        .filter(constructor -> constructor.getParameterTypes().length == freeAtt.length)
+                        .findFirst().get();
+                return (EOObject)attConstructor.newInstance((Object[])freeAtt);
+            }
+
+        } catch (Exception e) {}
+        return res;
     }
 }
