@@ -52,7 +52,7 @@ public abstract class EOObject implements Cloneable{
      * @return копия объекта
      */
     public EOObject _clone() {
-        try{
+        /*try{
             EOObject res  = (EOObject)this.clone();
             for (Field field : this.getClass().getDeclaredFields()) {
                 field.setAccessible(true);
@@ -66,7 +66,8 @@ public abstract class EOObject implements Cloneable{
         }catch (IllegalAccessException iaException){
             iaException.printStackTrace();
         }
-        return new EODataObject();
+        return new EODataObject();*/
+        return this;
 
     }
 
