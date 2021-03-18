@@ -2,16 +2,16 @@ package eo.org.eolang.core;
 
 import eo.org.eolang.core.data.EOData;
 import eo.org.eolang.core.data.EODataObject;
-import eo.org.eolang.core.data.EONoData;
 
-import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
 public abstract class EOObject implements Cloneable{
     protected EOObject _parent;
+
+    public boolean _isCalculable(){return false;}
+
     public EOObject _setParent(EOObject _parent){
         if(this._parent == null)
             this._parent = _parent;
@@ -28,7 +28,8 @@ public abstract class EOObject implements Cloneable{
             for (Field field : this.getClass().getDeclaredFields()) {
                 field.setAccessible(true);
                 EOObject value = (EOObject)field.get(this);
-                field.set(this, value._clone());
+                //field.set(this, value._clone());
+                field.set(this, value);
             }
             return res;
         }catch (CloneNotSupportedException cnsException){
@@ -74,7 +75,7 @@ public abstract class EOObject implements Cloneable{
         }
         try{
             if(((EODataObject) res).isNoData()){
-                Class<?> attClasss = Class.forName("EO"+name);
+                Class<?> attClasss = Class.forName(this.getClass().getPackage().getName() +".EO"+name);
                 Constructor<?> attConstructor = attClasss.getConstructor();
                 return (EOObject)attConstructor.newInstance();
             }
@@ -98,7 +99,8 @@ public abstract class EOObject implements Cloneable{
         }
         try{
             if(((EODataObject) res).isNoData()){
-                Class<?> attClasss = Class.forName("EO"+name);
+                String className = this.getClass().getPackage().getName() +".EO"+name;
+                Class<?> attClasss = Class.forName(className);
                 Constructor<?> attConstructor = Arrays.stream(attClasss.getConstructors())
                         .filter(constructor -> constructor.getParameterTypes().length == freeAtt.length)
                         .findFirst().get();

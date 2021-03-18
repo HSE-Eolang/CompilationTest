@@ -9,6 +9,8 @@ public class EODataObject extends EOObject {
 
     protected EOData _data;
 
+    public boolean _isCalculable(){return true;}
+
     public EODataObject(Object _data) {
         this._data = new EOData(_data);
     }
